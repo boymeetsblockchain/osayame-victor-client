@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Register from "./screens/Register"
+import Login from "./screens/Login"
+import About from "./screens/About"
+import { Toaster } from "react-hot-toast"
+import Homepage from "./screens/Homepage"
+import ImageScreen from "./screens/Image"
+import Profile from "./screens/Profile"
+import { Route,Routes } from "react-router-dom"
+import { AuthProvider } from "./context/authContext"
+export default function App() {
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+    <Toaster/>
+    < AuthProvider>
 
-export default App;
+<Routes>
+  
+  <Route path="/" index element={<Homepage/>}/>
+  <Route path="/login"  element={<Login/>}/>
+  <Route path="/register"  element={<Register/>}/>
+  <Route path="/image-select" element={<ImageScreen/>}/>
+  <Route path="/profile" element={<Profile/>}/>
+  <Route path="/about" element={<About/>}/>
+</Routes>
+
+</AuthProvider>
+    </>
+  )
+}
