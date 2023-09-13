@@ -29,22 +29,32 @@ const Register = () => {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
-  const userdata = { name, email, password, imagearr };
-  try {
-    const response = await axios.post(url, userdata, { withCredentials: true }); // Add withCredentials: true
-    if (response.data) {
-      localStorage.setItem('user', JSON.stringify(response.data))
-      toast.success("registered in")
-      navigate('/profile')
-    }
-    return response.data
-
-  } catch (error) {
-    toast.error("Something went wrong")
-    console.error(error)
+  const userdata = { name, email, password, imagearr }
+  console.log(selectedImageIds)
+ 
+  if(password.length < 6){
+    toast.error("Password is weak,choose a stronger password")
+  }else if (selectedImageIds.length < 3){
+  toast.error("Please select 3 or more images")
   }
-
-  setSelectedImageIds([]);
+  else{
+    try {
+      const response = await axios.post(url, userdata, { withCredentials: true }); // Add withCredentials: true
+      if (response.data) {
+        localStorage.setItem('user', JSON.stringify(response.data))
+        toast.success("registered in")
+        navigate('/profile')
+      }
+      return response.data
+  
+    } catch (error) {
+      toast.error("Invalid crede")
+      console.error(error)
+    }
+    
+    setSelectedImageIds([]);
+  }
+ 
 };
 
   return (
@@ -118,6 +128,7 @@ const handleSubmit = async (e) => {
               </div>
             </div>
             <div className="data-select">
+            <h1 className='font-bold text-lg text-center my-4'>Please Select  3 or more Images</h1>
         <div className="grid grid-cols-3 gap-4 ">
           {imageData.map((data) => (
             <div

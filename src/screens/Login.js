@@ -24,6 +24,7 @@ const Login = () => {
   const handleSubmit =  async(e)=>{
     e.preventDefault()
     const userdata={email,password,imagearr}
+    
     try {
       const response = await axios.post(url, userdata, { withCredentials: true }); // Add withCredentials: true
       if (response.data) {
@@ -95,7 +96,9 @@ const Login = () => {
               </div>
             </div>
             <div className="data-select">
+            <h1 className='font-bold text-lg text-center my-4'>Please Select  3 or more Images</h1>
         <div className="grid grid-cols-3 gap-4 ">
+          
           {imageData.map((data) => (
             <div
               key={data.id}
