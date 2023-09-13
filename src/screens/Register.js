@@ -25,7 +25,7 @@ const Register = () => {
   };
   const imagearr= selectedImageIds.join(',');
 
-  const url= "http://localhost:5000/api/user/register"
+  const url= "https://vercel.com/boymeetsblockchain/graphic-auth-server/5H7VHDVsnuHkRrhRLPv394btr7Ce/api/user/register"
 
 const handleSubmit = async (e) => {
   e.preventDefault();
