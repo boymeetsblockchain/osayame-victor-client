@@ -31,7 +31,7 @@ const Login = () => {
         localStorage.setItem('user', JSON.stringify(response.data))
         console.log(response.data)
         toast.success("logged in")
-        navigate('/profile')
+        navigate('/')
       }
       return response.data
      

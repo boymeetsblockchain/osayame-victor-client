@@ -43,7 +43,7 @@ const handleSubmit = async (e) => {
       if (response.data) {
         localStorage.setItem('user', JSON.stringify(response.data))
         toast.success("registered in")
-        navigate('/profile')
+        navigate('/')
       }
       return response.data
   
