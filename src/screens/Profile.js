@@ -30,7 +30,7 @@ function Profile() {
 
   const handleChangePassword = async () => {
     try {
-      const url = "http://localhost:5000/api/user/password";
+      const url = "https://graphic-auth-server.onrender.com/api/user/password";
   
       // Create an object with the required data
       const data = {
@@ -59,7 +59,7 @@ function Profile() {
   
   const handleImageChange = async () => {
     try {
-      const url = "http://localhost:5000/api/user/image";
+      const url = "https://graphic-auth-server.onrender.com/api/user/image";
       const imagearr= selectedImageIds.join(',');
       // Create an object with the required data
       const data = {

@@ -20,7 +20,7 @@ const Login = () => {
   };
   const imagearr= selectedImageIds.join(',');
   
-  const url= "https://vercel.com/boymeetsblockchain/graphic-auth-server/5H7VHDVsnuHkRrhRLPv394btr7Ce/api/user/login"
+  const url= "https://graphic-auth-server.onrender.com/api/user/login"
   const handleSubmit =  async(e)=>{
     e.preventDefault()
     const userdata={email,password,imagearr}
